@@ -3,7 +3,13 @@ async function loadData() {
     const response = await fetch(sheetUrl);
     const csv = await response.text();
 
-    const rows = csv.trim().split('\n').map(row => row.split(','));
+const rows = csv
+  .trim()
+  .split('\n')
+  .map(row => {
+    const matches = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+    return matches ? matches.map(v => v.replace(/^"|"$/g, '')) : [];
+  });
 
     const headers = rows[0].map(h => h.trim().toLowerCase());
     const data = rows.slice(1);
