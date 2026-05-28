@@ -17,13 +17,51 @@ const rows = csv
     const tbody = document.querySelector('#collectionTable tbody');
     const stats = document.getElementById('stats');
 
-    function normalize(text) {
-      return text
-        .toLowerCase()
-        .replace(/ё/g, 'е')
-        .replace(/й/g, 'и')
-        .replace(/[^a-zа-я0-9 ]/gi, '');
-    }
+function normalize(text) {
+  const translitMap = {
+    а: 'a',
+    б: 'b',
+    в: 'v',
+    г: 'g',
+    д: 'd',
+    е: 'e',
+    ё: 'e',
+    ж: 'zh',
+    з: 'z',
+    и: 'i',
+    й: 'i',
+    к: 'k',
+    л: 'l',
+    м: 'm',
+    н: 'n',
+    о: 'o',
+    п: 'p',
+    р: 'r',
+    с: 's',
+    т: 't',
+    у: 'u',
+    ф: 'f',
+    х: 'h',
+    ц: 'c',
+    ч: 'ch',
+    ш: 'sh',
+    щ: 'sch',
+    ы: 'y',
+    э: 'e',
+    ю: 'yu',
+    я: 'ya'
+  };
+
+  text = text.toLowerCase();
+
+  let translit = '';
+
+  for (const char of text) {
+    translit += translitMap[char] || char;
+  }
+
+  return translit.replace(/[^a-z0-9 ]/g, '');
+}
 
     function renderTable(filter = '') {
       tbody.innerHTML = '';
