@@ -16,7 +16,7 @@ function normalizeText(text) {
     .toLowerCase()
     .replace(/ё/g, 'е')
     .replace(/й/g, 'и')
-    .replace(/[^a-zа-я0-9]/gi, '');
+    .replace(/[^a-zа-я0-9\s]/gi, '');
 }
 
 function levenshtein(a, b) {
