@@ -1,4 +1,3 @@
-```javascript
 async function loadData() {
   try {
     const response = await fetch(sheetUrl);
@@ -126,4 +125,3 @@ async function loadData() {
 }
 
 loadData();
-```
