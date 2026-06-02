@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding: 20px;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  box-sizing: border-box;
+}
+
+#stats {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1d1d1d;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #2f2f2f;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: white;
+}
+
+.card-content {
+  padding: 14px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-info {
+  margin-bottom: 6px;
+}
+
+.available {
+  color: #58d68d;
+  font-weight: bold;
+}
+
+.missing {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 15px;
+  }
+}
